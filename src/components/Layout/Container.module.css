@@ -1,0 +1,32 @@
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+/* Utility variants */
+.container.narrow {
+  max-width: 800px;
+}
+
+.container.wide {
+  max-width: 1400px;
+}
+
+.container.flush {
+  padding: 0;
+}

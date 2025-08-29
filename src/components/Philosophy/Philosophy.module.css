@@ -1,0 +1,160 @@
+/* Philosophy Section Styles */
+
+/* Section title override for white text on gradient */
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* Grid layout */
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Philosophy items with glassmorphism effect */
+.philosophyItem {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.philosophyItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+.philosophyItemTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.philosophyItemDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Fade-in animation */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fadeIn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .philosophyItem {
+    padding: 1.5rem;
+  }
+  
+  .philosophyItemTitle {
+    font-size: 1.3rem;
+  }
+  
+  .philosophyItemDescription {
+    font-size: 0.95rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophyGrid {
+    gap: 1.2rem;
+  }
+  
+  .philosophyItem {
+    padding: 1.2rem;
+  }
+  
+  .philosophyItemTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .philosophyItemDescription {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    transition: none;
+  }
+  
+  .philosophyItem {
+    transition: none;
+  }
+  
+  .philosophyItem:hover {
+    transform: none;
+  }
+}
+
+/* Focus states for accessibility */
+.philosophyItem:focus-within {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+/* Print styles */
+@media print {
+  .philosophyGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .philosophyItem {
+    background: none;
+    border: 1px solid #ccc;
+    backdrop-filter: none;
+    color: #000;
+  }
+  
+  .philosophyItemTitle {
+    color: #2d7d7d;
+  }
+  
+  .philosophyItemDescription {
+    color: #4a5568;
+  }
+  
+  .sectionTitle {
+    color: #2d7d7d;
+  }
+}

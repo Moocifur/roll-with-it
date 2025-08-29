@@ -1,0 +1,288 @@
+/* Services Section Styles */
+
+/* Introduction */
+.servicesIntro {
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+}
+
+.introText {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Generic Wave Flow Layout - Reusable Template */
+.flowContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.flowItem {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(45, 125, 125, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.flowItemReverse {
+  flex-direction: row-reverse;
+  background: linear-gradient(135deg, #f0fdfc, #e6fffa);
+}
+
+/* Shimmer effect */
+.flowItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 209, 199, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.flowItem.hovered::before {
+  left: 100%;
+}
+
+/* Hover state */
+.flowItem.hovered {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(45, 125, 125, 0.2);
+}
+
+/* Generic Icon Container */
+.itemIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.iconContent {
+  font-size: 2rem;
+  z-index: 3;
+  position: relative;
+}
+
+/* Generic Content Container */
+.itemContent {
+  flex: 1;
+}
+
+.itemContent h3,
+.itemTitle {
+  color: #2d7d7d;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+.itemDescription {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Services Footer */
+.servicesFooter {
+  text-align: center;
+  margin-top: 5rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--light-teal), var(--lighter-teal));
+  border-radius: var(--border-radius-large);
+  border: 2px solid rgba(79, 209, 199, 0.2);
+}
+
+.footerText {
+  font-size: 1.3rem;
+  color: var(--primary-teal);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.ctaButton {
+  font-size: 1.2rem;
+  padding: 18px 36px;
+}
+
+/* Fade-in animation */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fadeIn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Additional shimmer effect for hover */
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(79, 209, 199, 0.1), 
+    transparent
+  );
+  animation: shimmer 0.8s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Responsive Design - Generic Template */
+@media (max-width: 768px) {
+  .flowContainer {
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .flowItem,
+  .flowItemReverse {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .itemIcon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .iconContent {
+    font-size: 1.8rem;
+  }
+  
+  .itemTitle {
+    font-size: 1.3rem;
+  }
+  
+  .itemDescription {
+    font-size: 1rem;
+  }
+  
+  .servicesIntro {
+    margin-bottom: 3rem;
+  }
+  
+  .introText {
+    font-size: 1.1rem;
+  }
+  
+  .servicesFooter {
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+  }
+  
+  .footerText {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flowItem {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .itemIcon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .iconContent {
+    font-size: 1.5rem;
+  }
+  
+  .itemTitle {
+    font-size: 1.2rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.95rem;
+  }
+  
+  .introText {
+    font-size: 1rem;
+  }
+  
+  .footerText {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Accessibility - Generic */
+@media (prefers-reduced-motion: reduce) {
+  .flowItem {
+    transition: none;
+  }
+  
+  .fadeIn {
+    transition: none;
+  }
+  
+  .shimmer {
+    animation: none;
+  }
+  
+  .flowItem::before {
+    transition: none;
+  }
+}
+
+/* Focus states for accessibility */
+.flowItem:focus-within {
+  outline: 3px solid var(--secondary-teal);
+  outline-offset: 3px;
+}
+
+/* Print styles */
+@media print {
+  .flowItem {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+  
+  .shimmer {
+    display: none;
+  }
+  
+  .servicesFooter {
+    background: none;
+    border: 1px solid #e2e8f0;
+  }
+}

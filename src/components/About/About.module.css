@@ -1,0 +1,224 @@
+/* About Section Styles */
+
+/* Main content layout */
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Text content */
+.aboutText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.aboutText p {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.aboutText p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* Credentials box */
+.credentials {
+  background: linear-gradient(135deg, #f0fdfc, #e6fffa);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+}
+
+.credentials h3 {
+  color: #2d7d7d;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.credentials p {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.credentials p:last-child {
+  margin-bottom: 0;
+}
+
+.credentials strong {
+  color: #2d7d7d;
+  font-weight: 700;
+}
+
+/* Quote/Image section */
+.aboutImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quoteBox {
+  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
+  height: 400px;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quoteBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quoteBox:hover::before {
+  opacity: 1;
+}
+
+.quoteBox blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fade-in animation */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fadeIn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .aboutText {
+    font-size: 1rem;
+  }
+  
+  .aboutText p {
+    margin-bottom: 1.2rem;
+  }
+  
+  .credentials {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .credentials h3 {
+    font-size: 1.1rem;
+  }
+  
+  .quoteBox {
+    height: 300px;
+  }
+  
+  .quoteBox blockquote {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutContent {
+    gap: 1.5rem;
+  }
+  
+  .aboutText {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .aboutText p {
+    margin-bottom: 1rem;
+  }
+  
+  .credentials {
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  
+  .credentials h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .credentials p {
+    font-size: 0.9rem;
+  }
+  
+  .quoteBox {
+    height: 250px;
+  }
+  
+  .quoteBox blockquote {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    transition: none;
+  }
+  
+  .quoteBox::before {
+    transition: none;
+  }
+}
+
+/* Focus states for accessibility */
+.quoteBox:focus-within {
+  outline: 3px solid var(--secondary-teal);
+  outline-offset: 3px;
+}
+
+/* Print styles */
+@media print {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .credentials {
+    background: none;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .quoteBox {
+    background: none;
+    border: 2px solid #2d7d7d;
+    color: #2d7d7d;
+    height: auto;
+    padding: 2rem;
+  }
+}
