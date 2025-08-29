@@ -11,7 +11,7 @@ import type { NavItem } from '../../types';
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollTo, handleAnchorClick } = useSmoothScroll();
+  const { scrollTo } = useSmoothScroll(); // Removed unused handleAnchorClick
 
   // Navigation items
   const navItems: NavItem[] = [

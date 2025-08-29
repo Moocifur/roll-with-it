@@ -18,12 +18,11 @@ export const useSmoothScroll = () => {
   ) => {
     const {
       behavior = 'smooth',
-      block = 'start',
       offset = 80 // Default offset for fixed header
     } = options;
 
     const element = document.getElementById(elementId);
-    
+        
     if (!element) {
       console.warn(`Element with id "${elementId}" not found`);
       return;
@@ -54,7 +53,7 @@ export const useSmoothScroll = () => {
   ) => {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
-    
+        
     if (href && href.startsWith('#')) {
       const elementId = href.substring(1);
       scrollTo(elementId);
