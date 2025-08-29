@@ -4,9 +4,4 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Remove the base path entirely - let GitHub Pages handle it
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets'
-  }
 })
